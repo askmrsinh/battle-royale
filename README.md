@@ -39,15 +39,15 @@ Node.js and pnpm installations.
 
 1. Clone the repository
 
-```bash
-git clone https://github.com/askmrsinh/battle-royale battle-royale
-cd battle-royale
-```
+   ```bash
+   git clone https://github.com/askmrsinh/business-lookup business-lookup
+   cd business-lookup
+   ```
 
 2. Install dependencies:
-```bash
-pnpm install
-```
+   ```bash
+   pnpm install
+   ```
 
 ### Setting up the Database
 
