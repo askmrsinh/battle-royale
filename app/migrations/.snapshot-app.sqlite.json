@@ -1,0 +1,448 @@
+{
+  "namespaces": [],
+  "tables": [
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "text"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "integer",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "integer"
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "text"
+        },
+        "gold": {
+          "name": "gold",
+          "type": "integer",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "integer"
+        },
+        "attack": {
+          "name": "attack",
+          "type": "integer",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "integer"
+        },
+        "hit": {
+          "name": "hit",
+          "type": "integer",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "integer"
+        },
+        "luck": {
+          "name": "luck",
+          "type": "integer",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "integer"
+        }
+      },
+      "name": "player",
+      "indexes": [
+        {
+          "keyName": "primary",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "constraint": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {},
+      "nativeEnums": {}
+    },
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "text"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "integer",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "integer"
+        },
+        "from_id": {
+          "name": "from_id",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "text"
+        },
+        "to_id": {
+          "name": "to_id",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "text"
+        },
+        "is_finished": {
+          "name": "is_finished",
+          "type": "integer",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "default": "false",
+          "mappedType": "integer"
+        }
+      },
+      "name": "battle",
+      "indexes": [
+        {
+          "columnNames": [
+            "from_id"
+          ],
+          "composite": false,
+          "keyName": "battle_from_id_index",
+          "constraint": false,
+          "primary": false,
+          "unique": false
+        },
+        {
+          "columnNames": [
+            "to_id"
+          ],
+          "composite": false,
+          "keyName": "battle_to_id_index",
+          "constraint": false,
+          "primary": false,
+          "unique": false
+        },
+        {
+          "keyName": "primary",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "constraint": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [
+        {
+          "name": "battle_check",
+          "expression": "from_id <> to_id",
+          "definition": "check ((from_id <> to_id))"
+        }
+      ],
+      "foreignKeys": {
+        "battle_from_id_foreign": {
+          "constraintName": "battle_from_id_foreign",
+          "columnNames": [
+            "from_id"
+          ],
+          "localTableName": "battle",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "player",
+          "updateRule": "cascade"
+        },
+        "battle_to_id_foreign": {
+          "constraintName": "battle_to_id_foreign",
+          "columnNames": [
+            "to_id"
+          ],
+          "localTableName": "battle",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "player",
+          "updateRule": "cascade"
+        }
+      },
+      "nativeEnums": {}
+    },
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "text"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "integer",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "integer"
+        },
+        "battle_id": {
+          "name": "battle_id",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "text"
+        },
+        "attacker_id": {
+          "name": "attacker_id",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "text"
+        },
+        "damage": {
+          "name": "damage",
+          "type": "integer",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "integer"
+        }
+      },
+      "name": "attack",
+      "indexes": [
+        {
+          "columnNames": [
+            "battle_id"
+          ],
+          "composite": false,
+          "keyName": "attack_battle_id_index",
+          "constraint": false,
+          "primary": false,
+          "unique": false
+        },
+        {
+          "columnNames": [
+            "attacker_id"
+          ],
+          "composite": false,
+          "keyName": "attack_attacker_id_index",
+          "constraint": false,
+          "primary": false,
+          "unique": false
+        },
+        {
+          "keyName": "primary",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "constraint": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "attack_battle_id_foreign": {
+          "constraintName": "attack_battle_id_foreign",
+          "columnNames": [
+            "battle_id"
+          ],
+          "localTableName": "attack",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "battle",
+          "updateRule": "cascade"
+        },
+        "attack_attacker_id_foreign": {
+          "constraintName": "attack_attacker_id_foreign",
+          "columnNames": [
+            "attacker_id"
+          ],
+          "localTableName": "attack",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "player",
+          "updateRule": "cascade"
+        }
+      },
+      "nativeEnums": {}
+    },
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "text"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "integer",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "integer"
+        },
+        "attack_id": {
+          "name": "attack_id",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "text"
+        },
+        "player_id": {
+          "name": "player_id",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "text"
+        },
+        "health": {
+          "name": "health",
+          "type": "integer",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "integer"
+        }
+      },
+      "name": "player_state",
+      "indexes": [
+        {
+          "columnNames": [
+            "attack_id"
+          ],
+          "composite": false,
+          "keyName": "player_state_attack_id_index",
+          "constraint": false,
+          "primary": false,
+          "unique": false
+        },
+        {
+          "columnNames": [
+            "player_id"
+          ],
+          "composite": false,
+          "keyName": "player_state_player_id_index",
+          "constraint": false,
+          "primary": false,
+          "unique": false
+        },
+        {
+          "keyName": "primary",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "constraint": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "player_state_attack_id_foreign": {
+          "constraintName": "player_state_attack_id_foreign",
+          "columnNames": [
+            "attack_id"
+          ],
+          "localTableName": "player_state",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "attack",
+          "updateRule": "cascade"
+        },
+        "player_state_player_id_foreign": {
+          "constraintName": "player_state_player_id_foreign",
+          "columnNames": [
+            "player_id"
+          ],
+          "localTableName": "player_state",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "player",
+          "updateRule": "cascade"
+        }
+      },
+      "nativeEnums": {}
+    }
+  ],
+  "nativeEnums": {}
+}
