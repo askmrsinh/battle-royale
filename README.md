@@ -42,12 +42,12 @@ Node.js and pnpm installations.
 ```bash
 git clone https://github.com/askmrsinh/battle-royale battle-royale
 cd battle-royale
-   ```
+```
 
 2. Install dependencies:
-   ```bash
-   pnpm install
-   ```
+```bash
+pnpm install
+```
 
 ### Setting up the Database
 
