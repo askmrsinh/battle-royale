@@ -268,7 +268,7 @@ The project uses a typical Express.js structure with TypeScript. Key files and d
     - `seeders/`: Database seeders
     - `dtos/`: Request deserialization and validation
 
-## Considerations in the project
+## DB struture
 
 - Player Table: This table stores comprehensive information about each player and is used to perform all basic CRUD (Create, Read, Update, Delete) operations on player data.
 
